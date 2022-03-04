@@ -1,0 +1,35 @@
+<div class="mt-2 p-5 card col-5">
+    <h5 class="card-header">
+      Sign-up
+    </h5>
+    <div class="card-body mb-3">
+        <form [formGroup]="profileForm" (ngSubmit)="onFormSubmit()">
+            <div class="form-group">
+              <label for="firstname" >First Name</label>
+              <input  class="form-control" id="firstname" formControlName="firstname">
+              <small class="form-text text-danger" *ngIf="profileForm.get('firstname')?.errors?.required && profileForm.get('firstname')?.touched">This is a required field</small>
+            </div>
+            <div class="form-group">
+              <label for= "lastname">Last name</label>
+              <input  class="form-control" id="lastname" formControlName="lastname">
+              <small class="form-text text-danger" *ngIf="profileForm.get('lastname')?.errors?.required && profileForm.get('lastname')?.touched">This is a required field</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input  type="email" class="form-control" id="exampleInputEmail1" formControlName="email">
+              <small id="emailrequired" class="form-text text-danger" *ngIf="profileForm.get('email')?.errors?.required && profileForm.get('email')?.touched">This is a required field</small>
+              <small id="emailValidation" class="form-text text-danger" *ngIf="profileForm.get('email')?.errors?.email && profileForm.get('email')?.touched">Wrong email</small>
+            </div>
+            <div class="form-group">  
+              <label for="password">Password</label>
+              <input type="password" minlength="6" required class="form-control" id="password" formControlName="password">
+              <small class="form-text text-danger" *ngIf="profileForm.get('password')?.errors?.required && profileForm.get('password')?.touched">This is a required field</small>
+              <small class="form-text text-danger" *ngIf="profileForm.get('password').hasError('minlength')">Password should be minimum 6 characters</small>
+
+              
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      
+    </div>
+</div>
