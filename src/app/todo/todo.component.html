@@ -1,0 +1,55 @@
+<button type="button" class="btn btn-secondary" style="position:absolute;top: 75px;right: 20px;" (click)="logsout()">Sign out</button>
+
+<div class="card text-center mt-2">
+  
+    <div class="card-header">
+        <h2>TODO</h2>
+      
+    </div>
+    <div class="row align-self-center">
+        <div class="col">
+    <div class="card-body">
+      <button type="button" class="btn btn-primary btn-sm"style="position:absolute;top: 75px;right: 20px;" (click)="Refresh()" >Show Todo</button>
+        <form [formGroup]="profileForm" (ngSubmit)="onFormSubmit()">
+        <div class="input-group">
+            <input type="text" class="form-control" id="task" placeholder="New task" formControlName="task">
+            <small class="form-text text-danger" *ngIf="profileForm.get('task')?.errors?.required && profileForm.get('task')?.touched">This is a required field</small>
+            <div class="input-group-append">
+            
+              <button class="btn btn-outline-secondary m-2 " type="submit">Add</button>
+              
+            </div>
+          </div>
+        </form>
+    </div>
+        </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <h6 class="leads" ><em>Here is your TODO list ,{{urs.firstname}} {{urs.lastname}}</em></h6>
+      </div>
+       
+      <div class="card-body align-self-center">
+        <div style="margin:5px 0px">
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let item of data">
+              {{item.task}}
+              
+              <input type="text" placeholder="update task" #updates />              
+              <button type="button" class="btn btn-info btn-sm m-2" (click)="onUpdate(item.task,updates.value)" > Update</button>
+              <button type="button" class="btn btn-danger btn-sm m-2" (click)="onDelete(item.task)" >Delete</button>
+              
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+    <div class="sticky-bottom">
+    <div class="card-footer text-muted">
+        <p>“welcome to my tooooo-doooo list .”</p>
+      <footer class="blockquote-footer">complete your tasks before deadline </footer>
+    </div>
+      
+    </div>
+  </div>

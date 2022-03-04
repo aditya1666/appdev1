@@ -1,0 +1,26 @@
+<div class="mt-2 p-5 card col-5">
+    <h5 class="card-header">
+      Sign-in
+    </h5>
+    <div class="card-body">
+        <form [formGroup]="profileForm" (ngSubmit)="onFormSubmit()">
+            <div class="mb-3 form-group ">
+              
+              <label for="exampleInputEmail1" >Email address</label>
+              <input  type="email" class="form-control" id="exampleInputEmail1" formControlName="email">
+              <small id="emailrequired" class="form-text text-danger" *ngIf="profileForm.get('email')?.errors?.required && profileForm.get('email')?.touched">This is a required field</small>
+              <small id="emailValidation" class="form-text text-danger" *ngIf="profileForm.get('email')?.errors?.email && profileForm.get('email')?.touched">Wrong email</small>
+            </div>
+            <div class="mb-3 form-group"> 
+              
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" formControlName="password">
+              <small class="form-text text-danger" *ngIf="profileForm.get('password')?.errors?.required && profileForm.get('password')?.touched">This is a required field</small>
+
+              
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+      
+    </div>
+  </div>
