@@ -6,7 +6,7 @@ from firebase_admin import credentials
 app = Flask(__name__, static_folder='angular/dist/angular')
 CORS(app)
 
-cred = credentials.Certificate(r"D:\DOWNLOADS\Task2\firebase.json")
+#cred = credentials.Certificate(r"D:\DOWNLOADS\Task2\firebase.json")
 firebase_admin.initialize_app()
 from api import info
 
